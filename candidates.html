@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Candidates | JobSpring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- Reuse Header from index.html -->
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">Job<span>Spring</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="candidates.html" class="active">For Candidates</a></li>
+                    <li><a href="employers.html">For Employers</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Candidate Hero -->
+    <section class="candidate-hero">
+        <div class="hero-content">
+            <h1>Advance Your Career with JobSpring</h1>
+            <p>We connect top talent with leading companies worldwide</p>
+            <a href="#upload" class="btn">Upload Your CV</a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Register With Us?</h2>
+                <p>We provide more than just job opportunities - we help build careers</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-briefcase feature-icon"></i>
+                    <h3>Exclusive Opportunities</h3>
+                    <p>Access jobs that aren't advertised elsewhere through our extensive network of employer partners.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-user-tie feature-icon"></i>
+                    <h3>Dedicated Recruiters</h3>
+                    <p>Your personal recruiter will understand your skills and career goals to find your perfect match.
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3>Career Guidance</h3>
+                    <p>Get expert advice on CV writing, interview preparation, and career development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Our simple process for connecting you with great opportunities</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Register Your Details</h3>
+                        <p>Create your profile and upload your CV to our secure database. Tell us about your skills,
+                            experience, and career aspirations.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Meet Your Recruiter</h3>
+                        <p>We'll match you with a specialist recruiter who understands your industry and will become
+                            your career advocate.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Matched with Opportunities</h3>
+                        <p>We'll present you with carefully selected job opportunities that match your skills and career
+                            goals.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Interview Preparation</h3>
+                        <p>We'll prepare you for interviews with insider knowledge about the company and position.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Land Your Dream Job</h3>
+                        <p>We'll guide you through the offer process and help negotiate the best package for you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Upload -->
+    <section class="cv-upload" id="upload">
+        <div class="container">
+            <div class="upload-box">
+                <h2>Ready to Take the Next Step?</h2>
+                <p>Upload your CV and one of our recruiters will contact you to discuss opportunities</p>
+
+                <div class="upload-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & Drop your CV here</p>
+                    <p>or</p>
+                    <button class="btn">Browse Files</button>
+                    <small>Supported formats: PDF, DOC, DOCX (Max 5MB)</small>
+                </div>
+
+                <form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" placeholder="Email Address" required style="width: 100%; margin-bottom: 1rem;">
+                    <input type="tel" placeholder="Phone Number" style="width: 100%; margin-bottom: 1rem;">
+                    <textarea placeholder="Tell us about your career goals (optional)" rows="3"
+                        style="width: 100%; margin-bottom: 1rem; padding: 0.8rem;"></textarea>
+                    <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reuse Footer from index.html -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer content from index.html -->
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 TalentFinders Recruitment Agency. All rights reserved. | <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const nav = document.getElementById('mainNav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // File Upload Interaction
+        const uploadArea = document.querySelector('.upload-area');
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.pdf,.doc,.docx';
+        fileInput.style.display = 'none';
+
+        uploadArea.addEventListener('click', function () {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function () {
+            if (this.files.length > 0) {
+                const fileName = this.files[0].name;
+                uploadArea.innerHTML = `
+                    <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                    <p>${fileName}</p>
+                    <small>Click to change file</small>
+                `;
+            }
+        });
+
+        // Drag and Drop
+        uploadArea.addEventListener('dragover', function (e) {
+            e.preventDefault();
+
+            const secondaryColor = getComputedStyle(document.documentElement)
+                .getPropertyValue('--secondary').trim();
+            this.style.borderColor = secondaryColor;
+            this.style.backgroundColor = 'rgba(231, 76, 60, 0.1)';
+        });
+
+
+        uploadArea.addEventListener('dragleave', function () {
+            this.style.borderColor = '#ddd';
+            this.style.backgroundColor = 'transparent';
+        });
+
+        uploadArea.addEventListener('drop', function (e) {
+            e.preventDefault();
+            this.style.borderColor = '#ddd';
+            this.style.backgroundColor = 'transparent';
+
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                const fileName = fileInput.files[0].name;
+                uploadArea.innerHTML = `
+                    <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                    <p>${fileName}</p>
+                    <small>Click to change file</small>
+                `;
+            }
+        });
+    </script>
+</body>
+
+</html>

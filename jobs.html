@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Jobs | JobSpring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- Reuse Header from index.html -->
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">Job<span>Spring</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html" class="active">Jobs</a></li>
+                    <li><a href="candidates.html">For Candidates</a></li>
+                    <li><a href="employers.html">For Employers</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="padding: 4rem 0;">
+        <div class="section-title">
+            <h2>Browse Jobs</h2>
+            <p>Find your next career opportunity from our extensive job listings</p>
+        </div>
+
+        <div class="jobs-container">
+            <!-- Job Filters -->
+            <aside class="job-filters">
+                <div class="filter-group">
+                    <h3>Job Type</h3>
+                    <div class="filter-options">
+                        <div class="filter-option active">All Types</div>
+                        <div class="filter-option">Full-time</div>
+                        <div class="filter-option">Part-time</div>
+                        <div class="filter-option">Contract</div>
+                        <div class="filter-option">Temporary</div>
+                        <div class="filter-option">Internship</div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Location</h3>
+                    <div class="filter-options">
+                        <div class="filter-option active">Anywhere</div>
+                        <div class="filter-option">New York</div>
+                        <div class="filter-option">San Francisco</div>
+                        <div class="filter-option">Chicago</div>
+                        <div class="filter-option">Remote</div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Salary Range</h3>
+                    <div class="filter-options">
+                        <div class="filter-option active">All Salaries</div>
+                        <div class="filter-option">$50K+</div>
+                        <div class="filter-option">$75K+</div>
+                        <div class="filter-option">$100K+</div>
+                        <div class="filter-option">$125K+</div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Experience Level</h3>
+                    <div class="filter-options">
+                        <div class="filter-option active">All Levels</div>
+                        <div class="filter-option">Entry Level</div>
+                        <div class="filter-option">Mid Level</div>
+                        <div class="filter-option">Senior Level</div>
+                        <div class="filter-option">Executive</div>
+                    </div>
+                </div>
+
+                <button class="btn" style="width: 100%;">Filter Jobs</button>
+                <button class="btn btn-outline" style="width: 100%; margin-top: 0.5rem;">Reset Filters</button>
+            </aside>
+
+            <!-- Job Listings -->
+            <div class="job-listings">
+                <div class="job-list">
+                    <!-- Job Card 1 -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <h3 class="job-title">Senior Frontend Developer</h3>
+                                <p class="job-company">TechSolutions Inc.</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+
+                        <div class="job-details">
+                            <div class="job-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>San Francisco, CA (Remote)</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$120,000 - $150,000/year</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 2 days ago</span>
+                            </div>
+                        </div>
+
+                        <p class="job-description">
+                            We're looking for an experienced Frontend Developer with strong React skills to join our
+                            growing team. You'll work on building responsive, accessible user interfaces for our SaaS
+                            platform.
+                        </p>
+
+                        <div class="job-actions">
+                            <span class="job-posted">Posted: June 12, 2023</span>
+                            <a href="job-details.html" class="btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 2 -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <h3 class="job-title">Marketing Manager</h3>
+                                <p class="job-company">BrandVision Marketing</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+
+                        <div class="job-details">
+                            <div class="job-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>New York, NY</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$90,000 - $110,000/year</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 1 week ago</span>
+                            </div>
+                        </div>
+
+                        <p class="job-description">
+                            Seeking a creative Marketing Manager to lead our digital marketing efforts. You'll develop
+                            and implement marketing strategies, manage campaigns, and analyze performance metrics.
+                        </p>
+
+                        <div class="job-actions">
+                            <span class="job-posted">Posted: June 5, 2023</span>
+                            <a href="job-details.html" class="btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 3 -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <h3 class="job-title">Financial Analyst</h3>
+                                <p class="job-company">Global Finance Corp</p>
+                            </div>
+                            <span class="job-type">Contract</span>
+                        </div>
+
+                        <div class="job-details">
+                            <div class="job-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Chicago, IL (Hybrid)</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$45 - $55/hour</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 3 days ago</span>
+                            </div>
+                        </div>
+
+                        <p class="job-description">
+                            6-month contract position for a Financial Analyst with experience in financial modeling and
+                            data analysis. CPA or CFA preferred but not required.
+                        </p>
+
+                        <div class="job-actions">
+                            <span class="job-posted">Posted: June 10, 2023</span>
+                            <a href="job-details.html" class="btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Job Card 4 -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <h3 class="job-title">HR Coordinator</h3>
+                                <p class="job-company">PeopleFirst LLC</p>
+                            </div>
+                            <span class="job-type">Full-time</span>
+                        </div>
+
+                        <div class="job-details">
+                            <div class="job-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Boston, MA</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$65,000 - $75,000/year</span>
+                            </div>
+                            <div class="job-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 5 days ago</span>
+                            </div>
+                        </div>
+
+                        <p class="job-description">
+                            Entry-level HR Coordinator position perfect for recent graduates. You'll assist with
+                            recruitment, onboarding, and general HR administration in a fast-paced environment.
+                        </p>
+
+                        <div class="job-actions">
+                            <span class="job-posted">Posted: June 7, 2023</span>
+                            <a href="job-details.html" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="page-link active">1</div>
+                    <div class="page-link">2</div>
+                    <div class="page-link">3</div>
+                    <div class="page-link">4</div>
+                    <div class="page-link">5</div>
+                    <div class="page-link">Next</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reuse Footer from index.html -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer content from index.html -->
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 TalentFinders Recruitment Agency. All rights reserved. | <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const nav = document.getElementById('mainNav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Filter Option Selection (one per group)
+        document.querySelectorAll('.filter-group').forEach(group => {
+            group.addEventListener('click', function (e) {
+                if (e.target.classList.contains('filter-option')) {
+                    group.querySelectorAll('.filter-option').forEach(opt => opt.classList.remove('active'));
+                    e.target.classList.add('active');
+                }
+            });
+        });
+
+        // Filtering Logic
+        function getActiveFilters() {
+            const filters = {};
+            document.querySelectorAll('.filter-group').forEach(group => {
+                const groupName = group.querySelector('h3').textContent.trim();
+                const active = group.querySelector('.filter-option.active');
+                if (active) filters[groupName] = active.textContent.trim();
+            });
+            return filters;
+        }
+
+        function filterJobs() {
+            const filters = getActiveFilters();
+            document.querySelectorAll('.job-card').forEach(card => {
+                let show = true;
+                // Job Type
+                if (filters['Job Type'] && filters['Job Type'] !== 'All Types') {
+                    const type = card.querySelector('.job-type')?.textContent.trim();
+                    if (type !== filters['Job Type']) show = false;
+                }
+                // Location
+                if (filters['Location'] && filters['Location'] !== 'Anywhere') {
+                    const loc = card.querySelector('.job-detail i.fa-map-marker-alt')?.nextElementSibling?.textContent || '';
+                    if (!loc.includes(filters['Location'])) show = false;
+                }
+                // Salary
+                if (filters['Salary Range'] && filters['Salary Range'] !== 'All Salaries') {
+                    const salary = card.querySelector('.job-detail i.fa-dollar-sign')?.nextElementSibling?.textContent || '';
+                    const salaryNum = parseInt(salary.replace(/[^0-9]/g, ''));
+                    const filterNum = parseInt(filters['Salary Range'].replace(/[^0-9]/g, ''));
+                    if (salaryNum < filterNum) show = false;
+                }
+                // Experience Level (if present in card)
+                if (filters['Experience Level'] && filters['Experience Level'] !== 'All Levels') {
+                    // For demo, assume experience level is in job description text
+                    const desc = card.querySelector('.job-description')?.textContent || '';
+                    if (!desc.toLowerCase().includes(filters['Experience Level'].toLowerCase())) show = false;
+                }
+                card.style.display = show ? '' : 'none';
+            });
+        }
+
+        document.querySelector('.btn').addEventListener('click', function (e) {
+            if (this.textContent.includes('Filter')) {
+                e.preventDefault();
+                filterJobs();
+            }
+        });
+
+        document.querySelector('.btn.btn-outline').addEventListener('click', function (e) {
+            e.preventDefault();
+            // Reset all filters
+            document.querySelectorAll('.filter-group').forEach(group => {
+                group.querySelectorAll('.filter-option').forEach((opt, i) => {
+                    opt.classList.toggle('active', i === 0);
+                });
+            });
+            // Show all jobs
+            document.querySelectorAll('.job-card').forEach(card => card.style.display = '');
+        });
+    </script>
+</body>
+
+</html>

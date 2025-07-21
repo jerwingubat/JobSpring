@@ -1,0 +1,410 @@
+v
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Frontend Developer | TalentFinders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- Reuse Header from index.html -->
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">Talent<span>Finders</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="candidates.html">For Candidates</a></li>
+                    <li><a href="employers.html">For Employers</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Job Details Hero -->
+    <section class="job-details-hero">
+        <div class="container">
+            <div class="job-header">
+                <div>
+                    <h1 class="job-title">Senior Frontend Developer</h1>
+                    <p class="job-company">TechSolutions Inc.</p>
+                </div>
+                <div class="job-actions">
+                    <a href="#" class="btn btn-outline" style="color: white; border-color: white;">
+                        <i class="far fa-bookmark"></i> Save
+                    </a>
+                    <a href="#apply" class="btn">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="job-meta">
+                <div class="job-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>San Francisco, CA (Remote)</span>
+                </div>
+                <div class="job-meta-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>$120,000 - $150,000/year</span>
+                </div>
+                <div class="job-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Full-time</span>
+                </div>
+                <div class="job-meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Posted 2 days ago</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Content -->
+    <section class="job-content">
+        <div class="container">
+            <div class="job-container">
+                <div class="job-main">
+                    <div class="job-description">
+                        <h2>Job Description</h2>
+                        <p>TechSolutions Inc. is looking for an experienced Senior Frontend Developer to join our
+                            growing team. You'll be responsible for building responsive, accessible user interfaces for
+                            our SaaS platform while working closely with our design and backend teams.</p>
+
+                        <h3>Responsibilities:</h3>
+                        <ul>
+                            <li>Develop new user-facing features using React.js</li>
+                            <li>Build reusable components and front-end libraries for future use</li>
+                            <li>Translate designs and wireframes into high-quality code</li>
+                            <li>Optimize components for maximum performance across devices and browsers</li>
+                            <li>Collaborate with product designers and backend engineers</li>
+                            <li>Participate in code reviews and mentor junior developers</li>
+                            <li>Stay up-to-date with emerging frontend technologies</li>
+                        </ul>
+
+                        <h3>Requirements:</h3>
+                        <ul>
+                            <li>5+ years of frontend development experience</li>
+                            <li>Strong proficiency in JavaScript, including ES6+ syntax</li>
+                            <li>3+ years of experience with React.js and its core principles</li>
+                            <li>Experience with popular React workflows (Redux, Context API, etc.)</li>
+                            <li>Familiarity with RESTful APIs and modern authorization mechanisms</li>
+                            <li>Knowledge of modern frontend build pipelines and tools</li>
+                            <li>Experience with common frontend development tools such as Babel, Webpack, NPM, etc.</li>
+                            <li>Familiarity with code versioning tools (Git)</li>
+                            <li>Bachelor's degree in Computer Science or related field, or equivalent experience</li>
+                        </ul>
+
+                        <h3>Nice to Have:</h3>
+                        <ul>
+                            <li>Experience with TypeScript</li>
+                            <li>Familiarity with server-side rendering</li>
+                            <li>Knowledge of testing frameworks (Jest, React Testing Library)</li>
+                            <li>Experience with CI/CD pipelines</li>
+                            <li>Contributions to open-source projects</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-description">
+                        <h2>About TechSolutions Inc.</h2>
+                        <p>TechSolutions is a fast-growing SaaS company providing innovative solutions to the logistics
+                            industry. Founded in 2015, we've grown to serve over 1,000 customers worldwide with our
+                            cutting-edge platform.</p>
+                        <p>We offer a collaborative, remote-first work environment with competitive compensation and
+                            benefits. Our team is passionate about building great products and fostering professional
+                            growth.</p>
+                    </div>
+
+                    <div class="job-description" id="apply">
+                        <h2>How to Apply</h2>
+                        <p>Please submit your resume and cover letter through our application portal. We review
+                            applications on a rolling basis and will contact qualified candidates for interviews.</p>
+
+                        <form class="application-form" style="margin-top: 2rem;">
+                            <div class="form-group">
+                                <label for="applicant-name">Full Name</label>
+                                <input type="text" id="applicant-name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicant-email">Email Address</label>
+                                <input type="email" id="applicant-email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicant-phone">Phone Number</label>
+                                <input type="tel" id="applicant-phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicant-resume">Resume/CV</label>
+                                <input type="file" id="applicant-resume" accept=".pdf,.doc,.docx" required>
+                                <small>Accepted formats: PDF, DOC, DOCX (Max 5MB)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicant-cover">Cover Letter (Optional)</label>
+                                <input type="file" id="applicant-cover" accept=".pdf,.doc,.docx">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicant-portfolio">Portfolio/Website (Optional)</label>
+                                <input type="url" id="applicant-portfolio">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicant-message">Message (Optional)</label>
+                                <textarea id="applicant-message" rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="job-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Job Overview</h3>
+                        <div class="sidebar-info">
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div>
+                                    <strong>Date Posted:</strong>
+                                    <p>June 12, 2023</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong>
+                                    <p>San Francisco, CA (Remote)</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <div>
+                                    <strong>Salary:</strong>
+                                    <p>$120,000 - $150,000/year</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Job Type:</strong>
+                                    <p>Full-time</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-briefcase"></i>
+                                <div>
+                                    <strong>Experience:</strong>
+                                    <p>5+ years</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Company Details</h3>
+                        <div class="sidebar-info">
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-building"></i>
+                                <div>
+                                    <strong>Name:</strong>
+                                    <p>TechSolutions Inc.</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <strong>Website:</strong>
+                                    <p><a href="https://techsolutions.example.com"
+                                            target="_blank">techsolutions.example.com</a></p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <strong>Company Size:</strong>
+                                    <p>150 employees</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-industry"></i>
+                                <div>
+                                    <strong>Industry:</strong>
+                                    <p>SaaS, Logistics Technology</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Contact Information</h3>
+                        <div class="sidebar-info">
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-user-tie"></i>
+                                <div>
+                                    <strong>Hiring Manager:</strong>
+                                    <p>Sarah Johnson</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email:</strong>
+                                    <p><a
+                                            href="mailto:sarah.johnson@techsolutions.example.com">sarah.johnson@techsolutions.example.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Similar Jobs -->
+    <section class="similar-jobs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Similar Jobs</h2>
+                <p>Other positions you might be interested in</p>
+            </div>
+
+            <div class="similar-jobs-grid">
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Frontend Developer</h3>
+                            <p class="job-company">Digital Creations</p>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Remote</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>$100,000 - $130,000/year</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Posted 1 week ago</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <a href="job-details.html" class="btn">View Details</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">React Developer</h3>
+                            <p class="job-company">AppWorks</p>
+                        </div>
+                        <span class="job-type">Contract</span>
+                    </div>
+
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New York, NY</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>$60 - $80/hour</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Posted 3 days ago</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <a href="job-details.html" class="btn">View Details</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">UI/UX Developer</h3>
+                            <p class="job-company">DesignFirst</p>
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Boston, MA</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>$110,000 - $140,000/year</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Posted 5 days ago</span>
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <a href="job-details.html" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reuse Footer from index.html -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer content from index.html -->
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 TalentFinders Recruitment Agency. All rights reserved. | <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const nav = document.getElementById('mainNav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Application Form Submission
+        const applicationForm = document.querySelector('.application-form');
+        if (applicationForm) {
+            applicationForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Thank you for your application! We will review your materials and be in touch soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+
+</html>

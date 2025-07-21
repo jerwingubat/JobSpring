@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | JobSpring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- Reuse Header from index.html -->
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">Job<span>Spring</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="candidates.html">For Candidates</a></li>
+                    <li><a href="employers.html">For Employers</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <p>We're here to help with all your recruitment needs</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="section-title" style="text-align: left;">
+                        <h2>Contact Information</h2>
+                        <p>Reach out to us through any of these channels</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+18005551234">+1 (800) 555-1234</a></p>
+                            <p>Monday-Friday: 9am-6pm EST</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@talentfinders.com">info@talentfinders.com</a></p>
+                            <p>General inquiries</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Headquarters</h3>
+                            <p>123 Recruitment Ave, Suite 500</p>
+                            <p>New York, NY 10001</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2 style="margin-bottom: 1.5rem;">Send Us a Message</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject">
+                                <option value="">Select a subject</option>
+                                <option value="job-seeker">Job Seeker Inquiry</option>
+                                <option value="employer">Employer Services</option>
+                                <option value="general">General Question</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="office-locations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Offices</h2>
+                <p>Visit us at one of our locations nationwide</p>
+            </div>
+
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="New York Office">
+                    </div>
+                    <div class="location-info">
+                        <h3>New York</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Recruitment Ave, Suite 500, NY 10001</p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+12125551234">+1 (212) 555-1234</a></p>
+                        <p><i class="fas fa-envelope"></i> <a
+                                href="mailto:ny@talentfinders.com">ny@talentfinders.com</a></p>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="San Francisco Office">
+                    </div>
+                    <div class="location-info">
+                        <h3>San Francisco</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 456 Tech Street, Suite 200, CA 94107</p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+14155551234">+1 (415) 555-1234</a></p>
+                        <p><i class="fas fa-envelope"></i> <a
+                                href="mailto:sf@talentfinders.com">sf@talentfinders.com</a></p>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-image">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            alt="Chicago Office">
+                    </div>
+                    <div class="location-info">
+                        <h3>Chicago</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 789 Business Blvd, Suite 300, IL 60601</p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+13125551234">+1 (312) 555-1234</a></p>
+                        <p><i class="fas fa-envelope"></i> <a
+                                href="mailto:chi@talentfinders.com">chi@talentfinders.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reuse Footer from index.html -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer content from index.html -->
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 TalentFinders Recruitment Agency. All rights reserved. | <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const nav = document.getElementById('mainNav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Form Submission
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+
+</html>
