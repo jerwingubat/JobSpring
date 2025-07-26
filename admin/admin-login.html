@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | JobSpring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <a href="index.html" class="logo">Job<span>Spring</span></a>
+        </div>
+    </header>
+    <main class="container" style="padding: 4rem 0;">
+        <div class="section-title">
+            <h2>Admin Login</h2>
+            <p>Sign in to manage JobSpring platform.</p>
+        </div>
+        <div class="upload-box" style="max-width: 400px; margin: 0 auto;">
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="admin-email">Email Address</label>
+                    <input type="email" id="admin-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2023 JobSpring Recruitment Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYpGF5iy51Np9zbZH8Dzv5ZqV3dI-Lo9A",
+      authDomain: "jobspring-15ced.firebaseapp.com",
+      projectId: "jobspring-15ced",
+      storageBucket: "jobspring-15ced.firebasestorage.app",
+      messagingSenderId: "1055597236396",
+      appId: "1:1055597236396:web:3edd2120f45c858947cf09",
+      measurementId: "G-EFEEYJ1T94"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    document.getElementById('adminLoginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('admin-email').value;
+      const password = document.getElementById('admin-password').value;
+      try {
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+        const userDoc = await db.collection('users').doc(user.uid).get();
+        if (!userDoc.exists || userDoc.data().type !== 'admin') throw new Error('Not an admin account.');
+        window.location.href = 'admin-dashboard.html';
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+    </script>
+</body>
+</html> 

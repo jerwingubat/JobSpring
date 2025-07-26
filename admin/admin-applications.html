@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Applications | JobSpring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        body { background: #f4f6fa; }
+        .admin-layout { display: flex; min-height: 100vh; }
+        .admin-sidebar {
+            background: var(--primary);
+            color: #fff;
+            width: 240px;
+            min-height: 100vh;
+            padding: 2rem 1rem 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 16px rgba(44,62,80,0.08);
+        }
+        .admin-sidebar .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        .admin-sidebar .sidebar-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+            margin: 1rem 0 1.5rem 0;
+            border: none;
+        }
+        .admin-sidebar nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 0.7rem 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: background .18s, color .18s;
+        }
+        .admin-sidebar nav a.active, .admin-sidebar nav a:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+        .admin-main {
+            flex: 1 1 0;
+            background: #f4f6fa;
+            padding: 3rem 2rem;
+            min-height: 100vh;
+        }
+        .admin-main > h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        .admin-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 12px rgba(49,130,206,0.08);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .admin-table th, .admin-table td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+        }
+        .admin-table th {
+            background: var(--light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        .admin-table tr {
+            transition: background 0.15s;
+        }
+        .admin-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+        .admin-table tbody tr:hover {
+            background: #eaf1fb;
+        }
+        .admin-table tr:not(:last-child) {
+            border-bottom: 1px solid var(--border);
+        }
+        .admin-table td .btn {
+            font-size: 0.95rem;
+            padding: 0.4rem 1rem;
+            margin-right: 0.5rem;
+            border-radius: 6px;
+        }
+        .admin-table td .btn-outline {
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+            background: #fff;
+        }
+        .admin-table td .btn-outline:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+        .admin-table td .btn-outline[style*='secondary'] {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+        .admin-table td .btn-outline[style*='secondary']:hover {
+            background: var(--secondary);
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .admin-layout { flex-direction: column; }
+            .admin-sidebar { width: 100%; min-height: unset; flex-direction: row; gap: 1rem; padding: 1rem; box-shadow: none; }
+            .admin-sidebar nav { display: flex; gap: 0.5rem; }
+            .admin-main { padding: 2rem 0.5rem; }
+            .admin-table th, .admin-table td { padding: 0.7rem 0.5rem; }
+        }
+        @media (max-width: 600px) {
+            .admin-main { padding: 1rem 0.2rem; }
+            .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr {
+                display: block;
+            }
+            .admin-table thead { display: none; }
+            .admin-table tr {
+                margin-bottom: 1.2rem;
+                background: #fff;
+                border-radius: var(--radius);
+                box-shadow: 0 2px 8px rgba(49,130,206,0.08);
+                padding: 0.7rem 0.5rem;
+            }
+            .admin-table td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                min-height: 36px;
+                margin-bottom: 0.5rem;
+            }
+            .admin-table td:before {
+                position: absolute;
+                left: 0.7rem;
+                top: 0;
+                width: 48%;
+                white-space: nowrap;
+                font-weight: 600;
+                color: var(--primary);
+                content: attr(data-label);
+            }
+            .admin-table td .btn {
+                width: 100%;
+                margin-bottom: 0.4rem;
+            }
+            .admin-table tr:last-child { margin-bottom: 0; }
+            .admin-table { overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <button class="admin-mobile-menu-btn" id="adminMobileMenuBtn" style="display:none;position:fixed;top:16px;left:16px;z-index:2000;background:#fff;border:none;border-radius:8px;padding:0.5rem 0.8rem;box-shadow:0 2px 8px rgba(44,62,80,0.10);font-size:1.7rem;">
+            <i class="fas fa-bars"></i>
+        </button>
+        <aside class="admin-sidebar" id="adminSidebar">
+            <a href="admin-dashboard.html" class="logo">JobSpring Admin</a>
+            <nav>
+                <a href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="admin-jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                <a href="admin-employers.html"><i class="fas fa-building"></i> Employers</a>
+                <a href="admin-employees.html"><i class="fas fa-users"></i> Employees</a>
+                <a href="admin-applications.html" class="active"><i class="fas fa-file-alt"></i> Applications</a>
+                <a href="admin-login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+        <main class="admin-main">
+            <h1>Manage Applications</h1>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Applicant</th>
+                        <th>Job Title</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Applicant">Jessica Chen</td>
+                        <td data-label="Job Title">Senior Frontend Developer</td>
+                        <td data-label="Status"><span style="color: var(--success); font-weight: 600;">Reviewed</span></td>
+                        <td data-label="Actions">
+                            <button class="btn btn-outline">View</button>
+                            <button class="btn btn-outline" style="color: var(--secondary); border-color: var(--secondary);">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Applicant">Michael Thompson</td>
+                        <td data-label="Job Title">Marketing Manager</td>
+                        <td data-label="Status"><span style="color: #aaa; font-weight: 600;">Pending</span></td>
+                        <td data-label="Actions">
+                            <button class="btn btn-outline">View</button>
+                            <button class="btn btn-outline" style="color: var(--secondary); border-color: var(--secondary);">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Applicant">Sarah Johnson</td>
+                        <td data-label="Job Title">Financial Analyst</td>
+                        <td data-label="Status"><span style="color: var(--success); font-weight: 600;">Reviewed</span></td>
+                        <td data-label="Actions">
+                            <button class="btn btn-outline">View</button>
+                            <button class="btn btn-outline" style="color: var(--secondary); border-color: var(--secondary);">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYpGF5iy51Np9zbZH8Dzv5ZqV3dI-Lo9A",
+      authDomain: "jobspring-15ced.firebaseapp.com",
+      projectId: "jobspring-15ced",
+      storageBucket: "jobspring-15ced.firebasestorage.app",
+      messagingSenderId: "1055597236396",
+      appId: "1:1055597236396:web:3edd2120f45c858947cf09",
+      measurementId: "G-EFEEYJ1T94"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    auth.onAuthStateChanged(async user => {
+      if (!user) {
+        window.location.href = "admin-login.html";
+        return;
+      }
+      const userDoc = await db.collection('users').doc(user.uid).get();
+      if (!userDoc.exists || userDoc.data().type !== 'admin') {
+        window.location.href = "admin-login.html";
+      }
+    });
+    // Logout functionality
+    const logoutLink = document.querySelector('.admin-sidebar nav a[href="admin-login.html"]');
+    if (logoutLink) {
+      logoutLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        firebase.auth().signOut().then(() => {
+          window.location.href = 'admin-login.html';
+        });
+      });
+    }
+    // Mobile menu toggle for admin sidebar
+    function updateAdminMenuBtn() {
+      if (window.innerWidth <= 900) {
+        document.getElementById('adminMobileMenuBtn').style.display = 'block';
+        document.getElementById('adminSidebar').style.display = 'none';
+      } else {
+        document.getElementById('adminMobileMenuBtn').style.display = 'none';
+        document.getElementById('adminSidebar').style.display = '';
+      }
+    }
+    updateAdminMenuBtn();
+    window.addEventListener('resize', updateAdminMenuBtn);
+    document.getElementById('adminMobileMenuBtn').onclick = function() {
+      const sidebar = document.getElementById('adminSidebar');
+      if (sidebar.style.display === 'block') {
+        sidebar.style.display = 'none';
+      } else {
+        sidebar.style.display = 'block';
+        sidebar.style.position = 'fixed';
+        sidebar.style.top = '0';
+        sidebar.style.left = '0';
+        sidebar.style.width = '80vw';
+        sidebar.style.height = '100vh';
+        sidebar.style.background = '#fff';
+        sidebar.style.zIndex = '3000';
+        sidebar.style.boxShadow = '0 4px 32px rgba(44,62,80,0.18)';
+      }
+    };
+    // Hide sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+      const sidebar = document.getElementById('adminSidebar');
+      const btn = document.getElementById('adminMobileMenuBtn');
+      if (window.innerWidth > 900) return;
+      if (sidebar.style.display === 'block' && !sidebar.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+        sidebar.style.display = 'none';
+      }
+    });
+    </script>
+</body>
+</html> 

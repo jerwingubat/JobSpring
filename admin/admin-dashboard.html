@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | JobSpring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        body { background: #f4f6fa; }
+        .admin-layout { display: flex; min-height: 100vh; }
+        .admin-sidebar {
+            background: var(--primary);
+            color: #fff;
+            width: 240px;
+            min-height: 100vh;
+            padding: 2rem 1rem 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 16px rgba(44,62,80,0.08);
+        }
+        .admin-sidebar .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        .admin-sidebar .sidebar-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+            margin: 1rem 0 1.5rem 0;
+            border: none;
+        }
+        .admin-sidebar nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 0.7rem 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: background .18s, color .18s;
+        }
+        .admin-sidebar nav a.active, .admin-sidebar nav a:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+        .admin-main {
+            flex: 1 1 0;
+            background: #f4f6fa;
+            padding: 3rem 2rem;
+            min-height: 100vh;
+        }
+        .admin-main > h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+        .admin-main > p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+        .admin-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .admin-stat {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 12px rgba(49,130,206,0.08);
+            padding: 2rem 2.5rem;
+            min-width: 180px;
+            text-align: center;
+            flex: 1 1 180px;
+            border: 1px solid var(--border);
+        }
+        .admin-stat h3 { color: var(--accent); font-size: 2rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .admin-stat p { color: var(--primary); font-size: 1.05rem; }
+        @media (max-width: 900px) {
+            .admin-layout { flex-direction: column; }
+            .admin-sidebar { width: 100%; min-height: unset; flex-direction: row; gap: 1rem; padding: 1rem; box-shadow: none; position: static; height: auto; z-index: 100; overflow-x: auto; }
+            .admin-sidebar nav { display: flex; gap: 0.5rem; flex-wrap: wrap; width: 100%; justify-content: center; }
+            .admin-main { padding: 2rem 0.5rem; }
+            .admin-stats { gap: 1rem; flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .admin-main { padding: 1rem 0.2rem; }
+            .admin-stats { flex-direction: column; gap: 1rem; }
+            .admin-sidebar { flex-direction: column; align-items: stretch; padding: 0.5rem; }
+            .admin-sidebar nav { flex-direction: column; gap: 0.2rem; align-items: stretch; }
+            .admin-sidebar nav a { font-size: 1rem; padding: 0.6rem 0.8rem; }
+            .admin-main form, .admin-main .form-group { width: 100%; box-sizing: border-box; }
+            .admin-main input, .admin-main textarea { width: 100%; box-sizing: border-box; font-size: 1rem; }
+            .admin-main button { font-size: 1rem; min-width: 44px; min-height: 44px; }
+        }
+        .admin-main form, .admin-main .form-group {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .admin-main input, .admin-main textarea {
+          width: 100%;
+          box-sizing: border-box;
+          font-size: 1rem;
+        }
+        .admin-main button {
+          font-size: 1rem;
+          min-width: 44px;
+          min-height: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <button class="admin-mobile-menu-btn" id="adminMobileMenuBtn" style="display:none;position:fixed;top:16px;left:16px;z-index:2000;background:#fff;border:none;border-radius:8px;padding:0.5rem 0.8rem;box-shadow:0 2px 8px rgba(44,62,80,0.10);font-size:1.7rem;">
+            <i class="fas fa-bars"></i>
+        </button>
+        <aside class="admin-sidebar" id="adminSidebar">
+            <a href="admin-dashboard.html" class="logo">JobSpring Admin</a>
+            <nav>
+                <a href="admin-dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="admin-jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                <a href="admin-employers.html"><i class="fas fa-building"></i> Employers</a>
+                <a href="admin-employees.html"><i class="fas fa-users"></i> Employees</a>
+                <a href="admin-applications.html"><i class="fas fa-file-alt"></i> Applications</a>
+                <a href="admin-login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+        <main class="admin-main">
+            <h1>Welcome, Admin!</h1>
+            <p>Manage jobs, users, and applications for JobSpring.</p>
+            <div class="admin-stats">
+                <div class="admin-stat">
+                    <h3>128</h3>
+                    <p>Active Jobs</p>
+                </div>
+                <div class="admin-stat">
+                    <h3>42</h3>
+                    <p>Employers</p>
+                </div>
+                <div class="admin-stat">
+                    <h3>312</h3>
+                    <p>Employees</p>
+                </div>
+                <div class="admin-stat">
+                    <h3>87</h3>
+                    <p>Applications</p>
+                </div>
+            </div>
+            <hr style="margin:2.5rem 0;">
+            <section id="cms-contact-section">
+                <h2>Contact Page CMS</h2>
+                <form id="contactCmsForm" style="max-width:400px;">
+                    <div class="form-group">
+                        <label for="cms-phone">Phone</label>
+                        <input type="text" id="cms-phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cms-email">Email</label>
+                        <input type="email" id="cms-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cms-address">Address</label>
+                        <input type="text" id="cms-address" name="address" required>
+                    </div>
+                    <button type="submit" class="btn" style="margin-top:1rem;">Save Contact Details</button>
+                    <p id="cmsContactMsg" style="margin-top:1rem;"></p>
+                </form>
+            </section>
+            <hr style="margin:2.5rem 0;">
+            <section id="cms-about-section">
+                <h2>About Page CMS</h2>
+                <form id="aboutCmsForm" style="max-width:600px;">
+                    <div class="form-group">
+                        <label for="about-hero-subtitle">Hero Subtitle</label>
+                        <input type="text" id="about-hero-subtitle" name="heroSubtitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="about-who">Who We Are (HTML allowed)</label>
+                        <textarea id="about-who" name="who" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="about-values">Our Core Values (comma separated)</label>
+                        <input type="text" id="about-values" name="values" required placeholder="Integrity, Innovation, Passion, Excellence, Collaboration, Results">
+                    </div>
+                    <div class="form-group">
+                        <label for="about-values-desc">Values Descriptions (semicolon separated, order matches values)</label>
+                        <textarea id="about-values-desc" name="valuesDesc" rows="3" required placeholder="We believe in transparency...;We continuously improve...;"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="margin-top:1rem;">Save About Details</button>
+                    <p id="cmsAboutMsg" style="margin-top:1rem;"></p>
+                </form>
+            </section>
+            <hr style="margin:2.5rem 0;">
+            <section id="cms-team-section">
+                <h2>About Page Team CMS</h2>
+                <div id="teamList"></div>
+                <div style="margin:2rem 0 2rem 0;">
+                  <h3 style="margin-bottom:1rem;">Live Preview</h3>
+                  <div class="team-grid" id="teamPreviewGrid"></div>
+                </div>
+                <form id="teamForm" style="max-width:600px; margin-top:2rem;">
+                    <input type="hidden" id="team-index">
+                    <div class="form-group">
+                        <label for="team-name">Name</label>
+                        <input type="text" id="team-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="team-title">Title</label>
+                        <input type="text" id="team-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="team-img">Image</label>
+                        <input type="file" id="team-img" accept="image/*">
+                        <div id="team-img-preview" style="margin-top:0.5rem;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="team-linkedin">LinkedIn URL</label>
+                        <input type="text" id="team-linkedin">
+                    </div>
+                    <div class="form-group">
+                        <label for="team-twitter">Twitter URL</label>
+                        <input type="text" id="team-twitter">
+                    </div>
+                    <div class="form-group">
+                        <label for="team-email">Email</label>
+                        <input type="email" id="team-email">
+                    </div>
+                    <button type="submit" class="btn" style="margin-top:1rem;">Save Team Member</button>
+                    <button type="button" class="btn btn-outline" id="cancelTeamBtn" style="margin-top:1rem;">Cancel</button>
+                    <p id="cmsTeamMsg" style="margin-top:1rem;"></p>
+                </form>
+            </section>
+        </main>
+    </div>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYpGF5iy51Np9zbZH8Dzv5ZqV3dI-Lo9A",
+      authDomain: "jobspring-15ced.firebaseapp.com",
+      projectId: "jobspring-15ced",
+      storageBucket: "jobspring-15ced.firebasestorage.app",
+      messagingSenderId: "1055597236396",
+      appId: "1:1055597236396:web:3edd2120f45c858947cf09",
+      measurementId: "G-EFEEYJ1T94"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    auth.onAuthStateChanged(async user => {
+      if (!user) {
+        window.location.href = "admin-login.html";
+        return;
+      }
+      const userDoc = await db.collection('users').doc(user.uid).get();
+      if (!userDoc.exists || userDoc.data().type !== 'admin') {
+        window.location.href = "admin-login.html";
+      }
+    });
+    // Logout functionality
+    const logoutLink = document.querySelector('.admin-sidebar nav a[href="admin-login.html"]');
+    if (logoutLink) {
+      logoutLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        firebase.auth().signOut().then(() => {
+          window.location.href = 'admin-login.html';
+        });
+      });
+    }
+    // Contact CMS logic
+    async function loadContactCMS() {
+      const doc = await db.collection('site').doc('contact').get();
+      if (doc.exists) {
+        const data = doc.data();
+        document.getElementById('cms-phone').value = data.phone || '';
+        document.getElementById('cms-email').value = data.email || '';
+        document.getElementById('cms-address').value = data.address || '';
+      }
+    }
+    document.getElementById('contactCmsForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const phone = document.getElementById('cms-phone').value;
+      const email = document.getElementById('cms-email').value;
+      const address = document.getElementById('cms-address').value;
+      try {
+        await db.collection('site').doc('contact').set({ phone, email, address });
+        document.getElementById('cmsContactMsg').textContent = 'Contact details updated!';
+        document.getElementById('cmsContactMsg').style.color = 'var(--success)';
+      } catch (err) {
+        document.getElementById('cmsContactMsg').textContent = err.message;
+        document.getElementById('cmsContactMsg').style.color = 'var(--danger)';
+      }
+    };
+    loadContactCMS();
+    // About CMS logic
+    async function loadAboutCMS() {
+      const doc = await db.collection('site').doc('about').get();
+      if (doc.exists) {
+        const data = doc.data();
+        document.getElementById('about-hero-subtitle').value = data.heroSubtitle || '';
+        document.getElementById('about-who').value = data.who || '';
+        document.getElementById('about-values').value = data.values ? data.values.join(', ') : '';
+        document.getElementById('about-values-desc').value = data.valuesDesc ? data.valuesDesc.join('; ') : '';
+      }
+    }
+    document.getElementById('aboutCmsForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const heroSubtitle = document.getElementById('about-hero-subtitle').value;
+      const who = document.getElementById('about-who').value;
+      const values = document.getElementById('about-values').value.split(',').map(v => v.trim());
+      const valuesDesc = document.getElementById('about-values-desc').value.split(';').map(v => v.trim());
+      try {
+        await db.collection('site').doc('about').set({ heroSubtitle, who, values, valuesDesc });
+        document.getElementById('cmsAboutMsg').textContent = 'About details updated!';
+        document.getElementById('cmsAboutMsg').style.color = 'var(--success)';
+      } catch (err) {
+        document.getElementById('cmsAboutMsg').textContent = err.message;
+        document.getElementById('cmsAboutMsg').style.color = 'var(--danger)';
+      }
+    };
+    loadAboutCMS();
+    // Team CMS logic
+    let teamData = [];
+    async function loadTeamCMS() {
+      const doc = await db.collection('site').doc('about').get();
+      if (doc.exists && doc.data().team) {
+        teamData = doc.data().team;
+      } else {
+        teamData = [];
+      }
+      renderTeamList();
+    }
+    function renderTeamList() {
+      const list = document.getElementById('teamList');
+      if (!teamData.length) {
+        list.innerHTML = '<div style="color:#888;">No team members set.</div>';
+        document.getElementById('teamPreviewGrid').innerHTML = '<div style="color:#888;">No team members set.</div>';
+        return;
+      }
+      list.innerHTML = teamData.map((member, i) => `
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+          <img src="${member.img}" alt="${member.name}" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
+          <div style="flex:1;">
+            <strong>${member.name}</strong> <span style="color:#888;">${member.title}</span>
+          </div>
+          <button class="btn btn-outline" onclick="editTeamMember(${i})">Edit</button>
+          <button class="btn btn-danger" onclick="deleteTeamMember(${i})">Delete</button>
+        </div>
+      `).join('');
+      // Live preview
+      const preview = document.getElementById('teamPreviewGrid');
+      preview.innerHTML = teamData.map(member => `
+        <div class="team-card">
+          <div class="team-image">
+            <img src="${member.img || ''}" alt="${member.name || ''}">
+          </div>
+          <div class="team-info">
+            <h3>${member.name || ''}</h3>
+            <p>${member.title || ''}</p>
+            <div class="team-social">
+              ${member.linkedin ? `<a href="${member.linkedin}" target="_blank"><i class="fab fa-linkedin-in"></i></a>` : `<span style='color:#bbb;cursor:not-allowed;'><i class="fab fa-linkedin-in"></i></span>`}
+              ${member.twitter ? `<a href="${member.twitter}" target="_blank"><i class="fab fa-twitter"></i></a>` : `<span style='color:#bbb;cursor:not-allowed;'><i class="fab fa-twitter"></i></span>`}
+              ${member.email ? `<a href="mailto:${member.email}"><i class="fas fa-envelope"></i></a>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+    window.editTeamMember = function(i) {
+      const m = teamData[i];
+      document.getElementById('team-index').value = i;
+      document.getElementById('team-name').value = m.name;
+      document.getElementById('team-title').value = m.title;
+      document.getElementById('team-img').value = '';
+      document.getElementById('team-img-preview').innerHTML = m.img ? `<img src='${m.img}' style='width:64px;height:64px;border-radius:50%;object-fit:cover;'>` : '';
+      document.getElementById('team-linkedin').value = m.linkedin || '';
+      document.getElementById('team-twitter').value = m.twitter || '';
+      document.getElementById('team-email').value = m.email || '';
+      document.getElementById('teamForm').scrollIntoView({behavior:'smooth'});
+    }
+    window.deleteTeamMember = async function(i) {
+      if (!confirm('Delete this team member?')) return;
+      teamData.splice(i, 1);
+      await db.collection('site').doc('about').set({ team: teamData }, { merge: true });
+      renderTeamList();
+    }
+    let teamImgBase64 = '';
+    document.getElementById('team-img').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        teamImgBase64 = evt.target.result;
+        document.getElementById('team-img-preview').innerHTML = `<img src='${teamImgBase64}' style='width:64px;height:64px;border-radius:50%;object-fit:cover;'>`;
+      };
+      reader.readAsDataURL(file);
+    });
+    document.getElementById('teamForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const i = document.getElementById('team-index').value;
+      let img = teamImgBase64;
+      // If editing and no new image uploaded, keep the old image
+      if (!img && i !== '') img = teamData[i].img;
+      const member = {
+        name: document.getElementById('team-name').value,
+        title: document.getElementById('team-title').value,
+        img,
+        linkedin: document.getElementById('team-linkedin').value,
+        twitter: document.getElementById('team-twitter').value,
+        email: document.getElementById('team-email').value
+      };
+      if (i === '') {
+        teamData.push(member);
+      } else {
+        teamData[i] = member;
+      }
+      try {
+        await db.collection('site').doc('about').set({ team: teamData }, { merge: true });
+        document.getElementById('cmsTeamMsg').textContent = 'Team member saved!';
+        document.getElementById('cmsTeamMsg').style.color = 'var(--success)';
+        renderTeamList();
+        document.getElementById('teamForm').reset();
+        document.getElementById('team-index').value = '';
+        document.getElementById('team-img-preview').innerHTML = '';
+        teamImgBase64 = '';
+      } catch (err) {
+        document.getElementById('cmsTeamMsg').textContent = err.message;
+        document.getElementById('cmsTeamMsg').style.color = 'var(--danger)';
+      }
+    };
+    document.getElementById('cancelTeamBtn').onclick = function() {
+      document.getElementById('teamForm').reset();
+      document.getElementById('team-index').value = '';
+      document.getElementById('team-img-preview').innerHTML = '';
+      teamImgBase64 = '';
+    };
+    loadTeamCMS();
+    // Mobile menu toggle for admin sidebar
+    function updateAdminMenuBtn() {
+      if (window.innerWidth <= 900) {
+        document.getElementById('adminMobileMenuBtn').style.display = 'block';
+        document.getElementById('adminSidebar').style.display = 'none';
+      } else {
+        document.getElementById('adminMobileMenuBtn').style.display = 'none';
+        document.getElementById('adminSidebar').style.display = '';
+      }
+    }
+    updateAdminMenuBtn();
+    window.addEventListener('resize', updateAdminMenuBtn);
+    document.getElementById('adminMobileMenuBtn').onclick = function() {
+      const sidebar = document.getElementById('adminSidebar');
+      if (sidebar.style.display === 'block') {
+        sidebar.style.display = 'none';
+      } else {
+        sidebar.style.display = 'block';
+        sidebar.style.position = 'fixed';
+        sidebar.style.top = '0';
+        sidebar.style.left = '0';
+        sidebar.style.width = '80vw';
+        sidebar.style.height = '100vh';
+        sidebar.style.background = '#fff';
+        sidebar.style.zIndex = '3000';
+        sidebar.style.boxShadow = '0 4px 32px rgba(44,62,80,0.18)';
+      }
+    };
+    // Hide sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+      const sidebar = document.getElementById('adminSidebar');
+      const btn = document.getElementById('adminMobileMenuBtn');
+      if (window.innerWidth > 900) return;
+      if (sidebar.style.display === 'block' && !sidebar.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+        sidebar.style.display = 'none';
+      }
+    });
+    </script>
+</body>
+</html> 

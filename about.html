@@ -27,6 +27,21 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="login-dropdown" style="margin-left: 1.5rem;">
+                <button class="btn btn-outline" id="loginDropdownBtn" style="padding: 0.5rem 1.2rem; font-size: 1rem;">Login</button>
+                <div id="loginDropdownMenu" style="display: none; position: absolute; right: 0; top: 110%; background: #fff; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); min-width: 220px; z-index: 2000;">
+                    <div style="padding: 1rem 1.2rem; border-bottom: 1px solid #eee;">
+                        <strong style="font-size: 1.02rem; color: var(--primary);">Employee</strong><br>
+                        <a href="employee-login.html" style="display: block; margin: 0.5rem 0 0.2rem 0; color: var(--accent); text-decoration: none;">Login</a>
+                        <a href="employee-register.html" style="display: block; color: var(--primary); text-decoration: none;">Register</a>
+                    </div>
+                    <div style="padding: 1rem 1.2rem;">
+                        <strong style="font-size: 1.02rem; color: var(--primary);">Employer</strong><br>
+                        <a href="employer-login.html" style="display: block; margin: 0.5rem 0 0.2rem 0; color: var(--accent); text-decoration: none;">Login</a>
+                        <a href="employer-register.html" style="display: block; color: var(--primary); text-decoration: none;">Register</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -34,7 +49,7 @@
     <section class="about-hero">
         <div class="hero-content">
             <h1>Our Story</h1>
-            <p>Connecting talent with opportunity since 2010</p>
+            <p id="aboutHeroSubtitle"><span style="color:#888;">Loading...</span></p>
         </div>
     </section>
 
@@ -44,15 +59,7 @@
             <div class="story-content">
                 <div class="story-text">
                     <h2>Who We Are</h2>
-                    <p>TalentFinders was founded in 2010 with a simple mission: to connect great people with great
-                        companies. What began as a small recruitment agency in New York has grown into a nationwide
-                        network of recruitment specialists serving clients across industries.</p>
-                    <p>Our team brings together decades of combined experience in talent acquisition, human resources,
-                        and career counseling. We're proud to have helped thousands of candidates find fulfilling
-                        careers and supported hundreds of companies in building exceptional teams.</p>
-                    <p>Unlike larger, impersonal agencies, we maintain a boutique approach that allows us to truly
-                        understand both our candidates and clients. Our recruiters become trusted partners in your
-                        career or hiring journey.</p>
+                    <div id="aboutWho"><span style="color:#888;">Loading...</span></div>
                     <a href="contact.html" class="btn">Get in Touch</a>
                 </div>
 
@@ -104,66 +111,8 @@
                 <p>The experts behind your success</p>
             </div>
 
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
-                    </div>
-                    <div class="team-info">
-                        <h3>Sarah Johnson</h3>
-                        <p>CEO & Founder</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael Chen">
-                    </div>
-                    <div class="team-info">
-                        <h3>Michael Chen</h3>
-                        <p>Director of Operations</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Jessica Williams">
-                    </div>
-                    <div class="team-info">
-                        <h3>Jessica Williams</h3>
-                        <p>Head of Recruitment</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Rodriguez">
-                    </div>
-                    <div class="team-info">
-                        <h3>David Rodriguez</h3>
-                        <p>Client Relations Director</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="team-grid" id="aboutTeamGrid">
+                <div style="color:#888;">Loading...</div>
             </div>
         </div>
     </section>
@@ -176,56 +125,8 @@
                 <p>The principles that guide everything we do</p>
             </div>
 
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Integrity</h3>
-                    <p>We believe in transparency, honesty, and doing what's right - even when no one is watching.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We continuously improve our processes and embrace new technologies to deliver better results.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Passion</h3>
-                    <p>We're genuinely invested in our candidates' and clients' success and it shows in our work.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>We strive for the highest standards in everything we do, from candidate matching to client
-                        service.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Collaboration</h3>
-                    <p>We work as partners with both candidates and clients to achieve mutual success.</p>
-                </div>
-
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Results</h3>
-                    <p>We measure our success by the positive impact we create for the people and companies we serve.
-                    </p>
-                </div>
+            <div class="values-grid" id="aboutValuesGrid">
+                <div style="color:#888;">Loading...</div>
             </div>
         </div>
     </section>
@@ -244,12 +145,143 @@
         </div>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYpGF5iy51Np9zbZH8Dzv5ZqV3dI-Lo9A",
+      authDomain: "jobspring-15ced.firebaseapp.com",
+      projectId: "jobspring-15ced",
+      storageBucket: "jobspring-15ced.firebasestorage.app",
+      messagingSenderId: "1055597236396",
+      appId: "1:1055597236396:web:3edd2120f45c858947cf09",
+      measurementId: "G-EFEEYJ1T94"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    auth.onAuthStateChanged(async user => {
+      const loginDropdown = document.querySelector('.login-dropdown');
+      if (user) {
+        if (loginDropdown) loginDropdown.style.display = 'none';
+        const userDoc = await db.collection('users').doc(user.uid).get();
+        let type = userDoc.exists ? userDoc.data().type : null;
+        const header = document.querySelector('.header-container');
+        let userNav = document.getElementById('userNav');
+        if (!userNav) {
+          userNav = document.createElement('div');
+          userNav.id = 'userNav';
+          userNav.style.marginLeft = '1.5rem';
+          header.appendChild(userNav);
+        }
+        userNav.innerHTML = '';
+        if (type === 'employee') {
+          userNav.innerHTML = '<a href="employee-dashboard.html" class="btn btn-outline">My Profile</a>';
+        } else if (type === 'employer') {
+          userNav.innerHTML = '<a href="employer-dashboard.html" class="btn btn-outline">Dashboard</a>';
+        } else if (type === 'admin') {
+          userNav.innerHTML = '<a href="admin/admin-dashboard.html" class="btn btn-outline">Admin</a>';
+        }
+        const logoutBtn = document.createElement('button');
+        logoutBtn.className = 'btn btn-outline';
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.style.marginLeft = '1rem';
+        logoutBtn.onclick = function() {
+          auth.signOut().then(() => window.location.reload());
+        };
+        userNav.appendChild(logoutBtn);
+      } else {
+        if (loginDropdown) loginDropdown.style.display = '';
+        const userNav = document.getElementById('userNav');
+        if (userNav) userNav.remove();
+      }
+    });
+    </script>
     <script>
         // Mobile Menu Toggle
         document.getElementById('mobileMenuBtn').addEventListener('click', function () {
             const nav = document.getElementById('mainNav');
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
         });
+
+        // Login Dropdown
+        const loginBtn = document.getElementById('loginDropdownBtn');
+        const loginMenu = document.getElementById('loginDropdownMenu');
+        loginBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            loginMenu.style.display = loginMenu.style.display === 'block' ? 'none' : 'block';
+        });
+        document.addEventListener('click', function(e) {
+            if (!loginMenu.contains(e.target) && e.target !== loginBtn) {
+                loginMenu.style.display = 'none';
+            }
+        });
+    </script>
+    <script>
+        // Dynamically load about page content from Firestore
+        async function loadAboutContent() {
+          try {
+            const doc = await db.collection('site').doc('about').get();
+            if (doc.exists) {
+              const data = doc.data();
+              document.getElementById('aboutHeroSubtitle').textContent = data.heroSubtitle || 'Connecting talent with opportunity since 2010';
+              document.getElementById('aboutWho').innerHTML = data.who || 'No information set.';
+              // Values
+              const grid = document.getElementById('aboutValuesGrid');
+              grid.innerHTML = '';
+              if (data.values && data.valuesDesc && data.values.length === data.valuesDesc.length) {
+                for (let i = 0; i < data.values.length; i++) {
+                  const value = data.values[i];
+                  const desc = data.valuesDesc[i];
+                  grid.innerHTML += `<div class="value-card">
+                    <div class="value-icon"><i class="fas fa-star"></i></div>
+                    <h3>${value}</h3>
+                    <p>${desc}</p>
+                  </div>`;
+                }
+              } else {
+                grid.innerHTML = '<div>No values set.</div>';
+              }
+              // Team
+              const teamGrid = document.getElementById('aboutTeamGrid');
+              teamGrid.innerHTML = '';
+              if (data.team && data.team.length) {
+                for (const member of data.team) {
+                  teamGrid.innerHTML += `
+                    <div class="team-card">
+                      <div class="team-image">
+                        <img src="${member.img || ''}" alt="${member.name || ''}">
+                      </div>
+                      <div class="team-info">
+                        <h3>${member.name || ''}</h3>
+                        <p>${member.title || ''}</p>
+                        <div class="team-social">
+                          ${member.linkedin ? `<a href="${member.linkedin}" target="_blank"><i class="fab fa-linkedin-in"></i></a>` : `<span style='color:#bbb;cursor:not-allowed;'><i class="fab fa-linkedin-in"></i></span>`}
+                          ${member.twitter ? `<a href="${member.twitter}" target="_blank"><i class="fab fa-twitter"></i></a>` : `<span style='color:#bbb;cursor:not-allowed;'><i class="fab fa-twitter"></i></span>`}
+                          ${member.email ? `<a href="mailto:${member.email}"><i class="fas fa-envelope"></i></a>` : ''}
+                        </div>
+                      </div>
+                    </div>
+                  `;
+                }
+              } else {
+                teamGrid.innerHTML = '<div>No team members set.</div>';
+              }
+            } else {
+              document.getElementById('aboutHeroSubtitle').textContent = 'Connecting talent with opportunity since 2010';
+              document.getElementById('aboutWho').innerHTML = 'No information set.';
+              document.getElementById('aboutValuesGrid').innerHTML = '<div>No values set.</div>';
+              document.getElementById('aboutTeamGrid').innerHTML = '<div>No team members set.</div>';
+            }
+          } catch (err) {
+            document.getElementById('aboutHeroSubtitle').textContent = 'Error loading';
+            document.getElementById('aboutWho').innerHTML = 'Error loading';
+            document.getElementById('aboutValuesGrid').innerHTML = '<div>Error loading</div>';
+            document.getElementById('aboutTeamGrid').innerHTML = '<div>Error loading</div>';
+          }
+        }
+        loadAboutContent();
     </script>
 </body>
 

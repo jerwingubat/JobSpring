@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard | JobSpring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+        <a href="index.html" class="logo">JobSpring</a>~
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="candidates.html">Candidates</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="btn btn-outline" id="logoutBtn" style="margin-left:1.5rem;">Logout</button>
+        </div>
+    </header>
+    <main class="container" style="padding: 3rem 0;">
+        <div class="section-title">
+            <h2>My Profile</h2>
+            <p>View and update your profile details below.</p>
+        </div>
+        <div class="upload-box" style="max-width: 480px; margin: 0 auto;">
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="emp-fullname">Full Name</label>
+                    <input type="text" id="emp-fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="emp-email">Email</label>
+                    <input type="email" id="emp-email" name="email" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="emp-phone">Phone</label>
+                    <input type="text" id="emp-phone" name="phone">
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Save Changes</button>
+                <p id="profileMsg" style="margin-top:1rem;text-align:center;"></p>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-grid container">
+            <div class="footer-col">
+                <h3>JobSpring</h3>
+                <p>Empowering your career journey.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="candidates.html">Candidates</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Email: support@jobspring.com</li>
+                    <li>Phone: +1 234 567 890</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2024 JobSpring. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYpGF5iy51Np9zbZH8Dzv5ZqV3dI-Lo9A",
+      authDomain: "jobspring-15ced.firebaseapp.com",
+      projectId: "jobspring-15ced",
+      storageBucket: "jobspring-15ced.firebasestorage.app",
+      messagingSenderId: "1055597236396",
+      appId: "1:1055597236396:web:3edd2120f45c858947cf09",
+      measurementId: "G-EFEEYJ1T94"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    let currentUID = null;
+    auth.onAuthStateChanged(async user => {
+      if (!user) {
+        window.location.href = "employee-login.html";
+        return;
+      }
+      const userDoc = await db.collection('users').doc(user.uid).get();
+      if (!userDoc.exists || userDoc.data().type !== 'employee') {
+        window.location.href = "employee-login.html";
+        return;
+      }
+      currentUID = user.uid;
+      // Populate form
+      document.getElementById('emp-fullname').value = userDoc.data().name || '';
+      document.getElementById('emp-email').value = userDoc.data().email || user.email;
+      document.getElementById('emp-phone').value = userDoc.data().phone || '';
+    });
+    document.getElementById('profileForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!currentUID) return;
+      const name = document.getElementById('emp-fullname').value;
+      const phone = document.getElementById('emp-phone').value;
+      try {
+        await db.collection('users').doc(currentUID).update({ name, phone });
+        document.getElementById('profileMsg').textContent = 'Profile updated successfully!';
+        document.getElementById('profileMsg').style.color = 'var(--success)';
+      } catch (err) {
+        document.getElementById('profileMsg').textContent = err.message;
+        document.getElementById('profileMsg').style.color = 'var(--secondary)';
+      }
+    });
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+      auth.signOut().then(() => {
+        window.location.href = 'employee-login.html';
+      });
+    });
+    </script>
+</body>
+</html> 

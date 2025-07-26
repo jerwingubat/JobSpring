@@ -27,6 +27,21 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <div class="login-dropdown" style="margin-left: 1.5rem;">
+                <button class="btn btn-outline" id="loginDropdownBtn" style="padding: 0.5rem 1.2rem; font-size: 1rem;">Login</button>
+                <div id="loginDropdownMenu" style="display: none; position: absolute; right: 0; top: 110%; background: #fff; border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); min-width: 220px; z-index: 2000;">
+                    <div style="padding: 1rem 1.2rem; border-bottom: 1px solid #eee;">
+                        <strong style="font-size: 1.02rem; color: var(--primary);">Employee</strong><br>
+                        <a href="employee-login.html" style="display: block; margin: 0.5rem 0 0.2rem 0; color: var(--accent); text-decoration: none;">Login</a>
+                        <a href="employee-register.html" style="display: block; color: var(--primary); text-decoration: none;">Register</a>
+                    </div>
+                    <div style="padding: 1rem 1.2rem;">
+                        <strong style="font-size: 1.02rem; color: var(--primary);">Employer</strong><br>
+                        <a href="employer-login.html" style="display: block; margin: 0.5rem 0 0.2rem 0; color: var(--accent); text-decoration: none;">Login</a>
+                        <a href="employer-register.html" style="display: block; color: var(--primary); text-decoration: none;">Register</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -171,6 +186,59 @@
         </div>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYpGF5iy51Np9zbZH8Dzv5ZqV3dI-Lo9A",
+      authDomain: "jobspring-15ced.firebaseapp.com",
+      projectId: "jobspring-15ced",
+      storageBucket: "jobspring-15ced.firebasestorage.app",
+      messagingSenderId: "1055597236396",
+      appId: "1:1055597236396:web:3edd2120f45c858947cf09",
+      measurementId: "G-EFEEYJ1T94"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    auth.onAuthStateChanged(async user => {
+      const loginDropdown = document.querySelector('.login-dropdown');
+      if (user) {
+        if (loginDropdown) loginDropdown.style.display = 'none';
+        const userDoc = await db.collection('users').doc(user.uid).get();
+        let type = userDoc.exists ? userDoc.data().type : null;
+        const header = document.querySelector('.header-container');
+        let userNav = document.getElementById('userNav');
+        if (!userNav) {
+          userNav = document.createElement('div');
+          userNav.id = 'userNav';
+          userNav.style.marginLeft = '1.5rem';
+          header.appendChild(userNav);
+        }
+        userNav.innerHTML = '';
+        if (type === 'employee') {
+          userNav.innerHTML = '<a href="employee-dashboard.html" class="btn btn-outline">My Profile</a>';
+        } else if (type === 'employer') {
+          userNav.innerHTML = '<a href="employer-dashboard.html" class="btn btn-outline">Dashboard</a>';
+        } else if (type === 'admin') {
+          userNav.innerHTML = '<a href="admin/admin-dashboard.html" class="btn btn-outline">Admin</a>';
+        }
+        const logoutBtn = document.createElement('button');
+        logoutBtn.className = 'btn btn-outline';
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.style.marginLeft = '1rem';
+        logoutBtn.onclick = function() {
+          auth.signOut().then(() => window.location.reload());
+        };
+        userNav.appendChild(logoutBtn);
+      } else {
+        if (loginDropdown) loginDropdown.style.display = '';
+        const userNav = document.getElementById('userNav');
+        if (userNav) userNav.remove();
+      }
+    });
+    </script>
     <script>
         // Mobile Menu Toggle
         document.getElementById('mobileMenuBtn').addEventListener('click', function () {
@@ -229,6 +297,19 @@
                     <p>${fileName}</p>
                     <small>Click to change file</small>
                 `;
+            }
+        });
+
+        // Login Dropdown
+        const loginBtn = document.getElementById('loginDropdownBtn');
+        const loginMenu = document.getElementById('loginDropdownMenu');
+        loginBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            loginMenu.style.display = loginMenu.style.display === 'block' ? 'none' : 'block';
+        });
+        document.addEventListener('click', function(e) {
+            if (!loginMenu.contains(e.target) && e.target !== loginBtn) {
+                loginMenu.style.display = 'none';
             }
         });
     </script>
